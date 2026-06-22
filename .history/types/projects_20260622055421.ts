@@ -15,8 +15,12 @@ export interface Project {
     students: number;
     countries: number;
   };
-  demoUrl?: string;
-  caseStudyUrl?: string;
+  demoUrl?: string | null;
+  demoCredentials?: {
+    username: string;
+    password: string;
+  };
+  caseStudyUrl?: string | null;
 }
 
 export interface ProjectCategory {

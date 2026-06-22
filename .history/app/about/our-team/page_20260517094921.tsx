@@ -1,126 +1,9 @@
 // app/about/our-team/page.tsx
+import { advisoryBoard, teamMembers } from "@/lib/data";
+import Image from "next/image";
 import Link from "next/link";
-import { TeamMember } from "@/types/about";
 
 const OurTeam = () => {
-  const teamMembers: TeamMember[] = [
-    {
-      id: "chidi",
-      name: "Chidi Okonkwo",
-      role: "Founder & CEO",
-      bio: "Passionate educator and technologist with 10+ years experience in African educational systems. Founded Hypasoftware to bridge the technology gap in African education.",
-      image: "/team/chidi-okonkwo.jpg",
-      social: {
-        linkedin: "https://linkedin.com/in/chidi-okonkwo",
-        twitter: "https://twitter.com/chidi_okonkwo",
-        email: "chidi@hypasoftware.com",
-      },
-      expertise: [
-        "Educational Technology",
-        "Strategic Leadership",
-        "African EdTech",
-      ],
-    },
-    {
-      id: "amina",
-      name: "Amina Mohammed",
-      role: "Chief Technology Officer",
-      bio: "Software engineer with expertise in building scalable solutions for emerging markets. Leads our technical vision and product development.",
-      image: "/team/amina-mohammed.jpg",
-      social: {
-        linkedin: "https://linkedin.com/in/amina-mohammed",
-        twitter: "https://twitter.com/amina_mohammed",
-        email: "amina@hypasoftware.com",
-      },
-      expertise: [
-        "Software Architecture",
-        "Cloud Infrastructure",
-        "Mobile Development",
-      ],
-    },
-    {
-      id: "kwame",
-      name: "Kwame Asante",
-      role: "Head of Education",
-      bio: "Former school principal with 15 years of teaching experience. Ensures our solutions meet real classroom needs and educational standards.",
-      image: "/team/kwame-asante.jpg",
-      social: {
-        linkedin: "https://linkedin.com/in/kwame-asante",
-        email: "kwame@hypasoftware.com",
-      },
-      expertise: [
-        "Curriculum Development",
-        "Teacher Training",
-        "Educational Psychology",
-      ],
-    },
-    {
-      id: "zara",
-      name: "Zara Nkosi",
-      role: "Product Manager",
-      bio: "User experience expert focused on creating intuitive educational tools that work seamlessly in African contexts.",
-      image: "/team/zara-nkosi.jpg",
-      social: {
-        linkedin: "https://linkedin.com/in/zara-nkosi",
-        twitter: "https://twitter.com/zara_nkosi",
-        email: "zara@hypasoftware.com",
-      },
-      expertise: ["Product Strategy", "User Research", "UX Design"],
-    },
-    {
-      id: "david",
-      name: "David Okafor",
-      role: "Lead Developer",
-      bio: "Full-stack developer passionate about creating robust, offline-first applications for schools with limited internet access.",
-      image: "/team/david-okafor.jpg",
-      social: {
-        linkedin: "https://linkedin.com/in/david-okafor",
-        email: "david@hypasoftware.com",
-      },
-      expertise: ["React/Next.js", "Node.js", "Offline-First Design"],
-    },
-    {
-      id: "faith",
-      name: "Faith Adebayo",
-      role: "Community Manager",
-      bio: "Builds and nurtures relationships with schools, teachers, and parents across our African markets.",
-      image: "/team/faith-adebayo.jpg",
-      social: {
-        linkedin: "https://linkedin.com/in/faith-adebayo",
-        email: "faith@hypasoftware.com",
-      },
-      expertise: [
-        "Community Engagement",
-        "Customer Success",
-        "Partnership Development",
-      ],
-    },
-  ];
-
-  const advisoryBoard = [
-    {
-      id: "prof-adebayo",
-      name: "Prof. Adebayo Johnson",
-      role: "Educational Advisor",
-      affiliation: "University of Lagos",
-      bio: "Renowned education specialist with 30+ years experience in African educational policy and reform.",
-    },
-    {
-      id: "dr-kamau",
-      name: "Dr. Wanjiku Kamau",
-      role: "Technology Advisor",
-      affiliation: "African Tech Innovation Hub",
-      bio: "Pioneer in African technology innovation and digital transformation across the continent.",
-    },
-    {
-      id: "ms-bello",
-      name: "Ms. Fatima Bello",
-      role: "Business Advisor",
-      affiliation: "Pan-African Ventures",
-      bio: "Seasoned entrepreneur and investor focused on sustainable business models in emerging markets.",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -202,10 +85,16 @@ const OurTeam = () => {
                 <div className="p-8">
                   {/* Avatar placeholder */}
                   <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-6 mx-auto">
-                    {member.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
+                    <Image
+                      src={member.image}
+                      alt={member.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                      height={95}
+                      width={95}
+                      className="rounded-full shadow-2xl text-center"
+                    />
                   </div>
 
                   <h3 className="text-xl font-bold text-gray-900 text-center mb-2">
