@@ -2,12 +2,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import SearchBar from "./SearchBar";
 import MobileMenu from "./MobileMenu";
 import { navigationItems } from "@/lib/data";
-import { useRouter } from "next/navigation";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,10 +39,6 @@ const Header = () => {
           ? "bg-blue-900 shadow-lg backdrop-blur-md bg-opacity-95"
           : "bg-transparent"
       }`}
-      style={{
-        // Ensure proper transparency
-        backgroundColor: isScrolled ? undefined : "transparent",
-      }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -142,10 +138,7 @@ const Header = () => {
           setIsMobileMenuOpen(false);
           setIsSearchOpen(true);
         }}
-        onLoginClick={() => {
-          setIsMobileMenuOpen(false);
-          handleLoginClick();
-        }}
+        onLoginClick={handleLoginClick}
       />
     </header>
   );

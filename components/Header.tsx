@@ -1,3 +1,4 @@
+// components/Header.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -7,7 +8,6 @@ import Navigation from "./Navigation";
 import SearchBar from "./SearchBar";
 import MobileMenu from "./MobileMenu";
 import { navigationItems } from "@/lib/data";
-
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
